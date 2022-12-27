@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: my-deploy
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: abdo
+  template:
+    metadata:
+      name: my-app
+      labels:
+        app: abdo
+    spec:
+      containers:
+        - name: nginx-container
+          image: abballah/nginx-test
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80   
